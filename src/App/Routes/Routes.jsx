@@ -3,7 +3,7 @@ import Layout from "../../Components/Layout/Layout";
 import Home from "../../Pages/Home/Home";
 import Products from "../../Pages/Products/Products";
 
-createBrowserRouter([
+ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
