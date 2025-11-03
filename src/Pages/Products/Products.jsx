@@ -12,8 +12,9 @@ const Products = () => {
   }, [])
 
   return (
-    <Box style={{display: 'flex',flexWrap: 'wrap',
-      justifyContent: 'center',gap: '10px',padding: '10px'
+    <Box style={{display: 'flex',flexWrap: 'wrap', alignItems: 'stretch',
+      justifyContent: 'flex-start',gap: '10px',padding: '10px',
+      
     }}>
       {Array.isArray(products) && products.map((product) => (
         <ProductCards key={product.id} products={product} />

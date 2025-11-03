@@ -4,7 +4,10 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export default function ProductCards({ products }) {
   return (
-    <Card sx={{ maxWidth: 260, margin: 2 }}>
+    <Card  sx={{
+    maxWidth: 260,margin: 2,display: 'flex',
+    flexDirection: 'column',justifyContent: 'space-between', 
+  }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -12,9 +15,9 @@ export default function ProductCards({ products }) {
           image={products.thumbnail}
           alt={products.title}
         />
-        <CardContent>
+        <CardContent >
           <Typography gutterBottom variant="h6" component="div">
-            {products.title} 
+            {products.title.slice(0, 17)}...
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
             {products.description.slice(0, 60)}... 

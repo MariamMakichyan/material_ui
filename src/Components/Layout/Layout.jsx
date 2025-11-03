@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
       <Header />
-      <Container >
+      <Container maxWidth={1600}>
         <Outlet />
         </Container>
 
