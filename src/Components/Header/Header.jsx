@@ -18,7 +18,7 @@ const CartBadge = styled(Badge)`
   }
 `;
 
-function Header() {
+function Header({cartLenght}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -82,7 +82,7 @@ to="/cart"
             
 <IconButton>
       <ShoppingCartIcon fontSize="10px" />
-      <CartBadge badgeContent={7} color="primary" overlap="circular" />
+      <CartBadge badgeContent={cartLenght} color="primary" overlap="circular" />
     </IconButton>
 </Box>
         </Toolbar>

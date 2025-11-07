@@ -2,7 +2,7 @@
 import ProductCards from '../../Components/ProductCard/ProductCards'
 import {Box} from '@mui/material';
 
-const Products = ({products}) => {
+const Products = ({products, addToCart}) => {
 
   return (
     <Box style={{display: 'flex',flexWrap: 'wrap', alignItems: 'stretch',
@@ -10,7 +10,7 @@ const Products = ({products}) => {
       
     }}>
       {Array.isArray(products) && products.map((product) => (
-        <ProductCards key={product.id} products={product} />
+        <ProductCards key={product.id}addToCart={addToCart} products={product} />
       ))}
     </Box>
   )

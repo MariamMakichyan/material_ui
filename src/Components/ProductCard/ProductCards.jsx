@@ -3,7 +3,9 @@ import {Button,Card,CardContent,CardMedia,Typography,CardActionArea,CardActions,
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { NavLink } from 'react-router-dom';
 
-export default function ProductCards({ products }) {
+export default function ProductCards({ products, addToCart }) {
+
+
   return (
     <Card  sx={{
     maxWidth: 260,margin: 2,display: 'flex',
@@ -41,7 +43,7 @@ export default function ProductCards({ products }) {
         startIcon={<ShoppingCartIcon/>}
           variant="contained"
           sx={{ background: 'green', }}
-          
+          onClick={()=>addToCart(products)}
         >
           Buy
         </Button>
