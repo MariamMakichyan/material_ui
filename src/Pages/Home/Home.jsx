@@ -1,9 +1,11 @@
 import React from 'react'
+import Swiper from '../../Components/Swiper/Swiper'
 
-const Home = () => {
+ 
+export const Home=() => {
   return (
-    <div>Home</div>
+    <>
+    <Swiper/>
+    </>
   )
 }
-
-export default Home

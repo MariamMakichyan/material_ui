@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { AppBar, Box, Toolbar, IconButton, Typography, Menu, Container, Avatar, Button, Tooltip, MenuItem } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';import { styled } from '@mui/material/styles';
+import Badge, { badgeClasses } from '@mui/material/Badge';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 const pages = [
   { title: "Home", path: "/" },
@@ -9,7 +11,14 @@ const pages = [
 ];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+const CartBadge = styled(Badge)`
+  & .${badgeClasses.badge} {
+    top: -12px;
+    right: -6px;
+  }
+`;
+
+function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -45,56 +54,40 @@ function ResponsiveAppBar() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              textShadow:"#f4f4f4 -1px 0px 7px",
+              padding:"6px"
+              
             }}
           >
             SHOP PAGE
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, justifyContent: 'space-evenly', display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
               component={NavLink}
               to={page.path}
                 key={page.title}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block' , fontSize:'15px'}}
               >
                 {page.title}
               </Button>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+<Box
+component={NavLink}
+to="/cart"
+>
+            
+<IconButton>
+      <ShoppingCartIcon fontSize="10px" />
+      <CartBadge badgeContent={7} color="primary" overlap="circular" />
+    </IconButton>
+</Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default Header;

@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react'
+
 import ProductCards from '../../Components/ProductCard/ProductCards'
 import {Box} from '@mui/material';
 
-const Products = () => {
-  const [products, setProducts] = useState([])
-
-  useEffect(() => {
-    fetch('https://dummyjson.com/products')
-      .then((res) => res.json())
-      .then((res) => setProducts(res.products))
-  }, [])
+const Products = ({products}) => {
 
   return (
     <Box style={{display: 'flex',flexWrap: 'wrap', alignItems: 'stretch',
